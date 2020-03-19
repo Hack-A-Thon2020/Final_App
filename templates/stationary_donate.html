@@ -1,0 +1,55 @@
+{%extends 'master.html'%}
+{% load static%}
+
+{% block title%}Donate Item{%endblock%}
+
+{% block body%}
+
+<div style="margin-top: 2%;">
+    <center>
+        <div class="container" style="height:50%;width: 50%;position: relative; ">
+
+            
+            <center>
+                <h1 style="color:#252525;margin-top: 1%;"><strong>Insert Stationary Item</strong></h1>
+            </center><br>
+                 <center><form onsubmit="returncheck()" action="/home/Add/" method="post" style="border: solid aliceblue;position: relative;border-radius: 20px;"><br>
+                {% csrf_token %}
+
+                <center>
+                    <div> <br>
+                        <center><input
+                                style="width:250px;border: solid whitesmoke;border-width: 2px;padding: 6px;border-radius: 8px;cursor: pointer;"
+                                id="sname" type="text" name="sname" placeholder="Item Name "> </center> <br>
+
+                        <center>IMG: <input
+                                style="width:250px;border: solid whitesmoke;border-width: 2px;padding: 6px;border-radius: 8px;cursor: pointer;"
+                                 type="file" name="fileToUpload" id="image" value="Upload Image Of Book"></center>
+                        <br>
+
+                        <center> <label> Item Description : </label>
+                                <textarea>  </textarea> </center> <br> <br>
+				
+
+                        <center><input type="submit" value="Submit" class="btn btn-outline-dark"
+                                style="width:130px;cursor: pointer;border-radius: 15px;padding: 6px;"></input></center><br>
+                    </div>
+                </center>
+            </form><br>
+
+                
+            <center>
+                <center><a href="/"><input type="submit" value="Home" class="btn btn-outline-dark"
+                        style="width:180px;border-radius: 15px;padding: 6px;"></a></center>
+            </center>
+
+
+        </div>
+    </center>
+
+</div>
+
+
+</body>
+
+{%endblock%}

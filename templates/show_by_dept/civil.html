@@ -1,0 +1,59 @@
+{% load static%}
+<html lang="en">
+
+<head>
+  <title>Civil</title>
+  <!--Animate css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css' %}">
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.css' %}">
+
+  <!-- Theme css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/color2.css' %}" media="screen" id="color">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/hover.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/dept.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+<body>
+	<div class="destinations" id="destinations">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title"><h2>Book Shelf</h2></div>
+					<div class="section_subtitle">simply amazing Books</div>
+				</div>
+			</div>
+			<div class="row destinations_row">
+				<div class="col">
+					<div class="destinations_container item_grid">
+
+						<!-- Destination -->
+						{% for Book_det in Book_dets %}
+						{% if Book_det.Department == 'Civil' %}
+						<div class="destination item">
+							<div class="destination_image">
+								<img src="{{Book_det.img.url}}" alt="Book_Img">
+							</div>
+							<div class="destination_content">
+								{% if user.is_authenticated %}
+								<div class="destination_title"><a href="{% url 'book' Book_det.id %}">{{Book_det.BookName}}</a></div>
+								{% else %}
+								<div class="destination_title" style="color:black"><b>{{Book_det.BookName}}</b></div>
+								{% endif %}
+								<div class="destination_subtitle"><p>BY {{Book_det.AuthorName}}</p></div>
+								<div class="destination_price">{{Book_det.BookCategory}}</div>
+							</div>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<center>
+		<a href="/" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>back</a>
+	</center>
+		</div>
+	</div>
+</body>
+</html>

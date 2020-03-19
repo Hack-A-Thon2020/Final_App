@@ -1,0 +1,57 @@
+{% load static%}
+<html lang="en">
+
+<head>
+  <title>My Stationary</title>
+  <!--Animate css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css' %}">
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.css' %}">
+
+  <!-- Theme css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/color2.css' %}" media="screen" id="color">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/hover.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/dept.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+<body>
+	<div class="destinations" id="destinations">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title"><h2>Stationary</h2></div>
+					<div class="section_subtitle">Items</div>
+				</div>
+			</div>
+			<div class="row destinations_row">
+				<div class="col">
+					<div class="destinations_container item_grid">
+
+						<!-- Destination -->
+						{% for Stationary_det in Stationary_dets %}
+
+						<div class="destination item">
+							<div class="destination_image">
+								<img src="{{Stationary_det.img.url}}" alt="Stationary_Img">
+							</div>
+							<div class="destination_content">
+								{% if user.is_authenticated %}
+								<div class="destination_title"><a href="#">{{Stationary_det.Item_Name}}</a></div>
+								{% else %}
+								<div class="destination_title" style="color:black"><b>{{Stationary_det.Item_Name}}</b></div>
+								{% endif %}
+								<div class="destination_subtitle"><p>{{Stationary_det.Item_Description}}</p></div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<center>
+		<a href="/" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>back</a>
+	</center>
+		</div>
+	</div>
+</body>
+</html>

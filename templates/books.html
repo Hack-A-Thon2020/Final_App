@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+{% if user.is_authenticated %}
+<head>
+    <title>BOOK {{Book_det.id}}</title>
+    <style>
+        .button{
+             padding: 12px 24px;
+              text-align: center;
+              text-decoration: none;
+              font-size: 14px;
+              margin: 4px 2px;
+              cursor: pointer;
+             transition-duration: 0.4s;
+             border-radius: 10px;
+}
+        .button:hover {
+        background-color:black;
+  color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Book-{{Book_det.id}}</h1>
+<img src="{{Book_det.img.url}}" align="left" style="padding:15px">
+<ul align="right-center" style="padding:50px;position:absolute;left:200px">
+    <li>Book Name:{{Book_det.BookName}}</li>
+    <li>Edition:{{Book_det.Edition}}</li>
+     <li>Author Name:{{Book_det.AuthorName}}</li>
+     <li>Publication:{{Book_det.Publication}}</li>
+      <li>Book Category:{{Book_det.BookCategory}}</li><br>
+    <a href="{% url 'borrow' Book_det.id %}"><input type="button" value="Issue" class="button"></a>
+</ul>
+<div><a href="/">Back to full listing</a></div>
+</body>
+{% endif %}
+</html>

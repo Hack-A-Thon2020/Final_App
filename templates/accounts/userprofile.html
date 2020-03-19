@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% if user.is_authenticated %}
+<head>
+    <title>My Profile</title>
+   <link rel="icon" href="{% static 'assets/images/favicon/favicon.ico' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'assets/images/favicon/favicon.ico' %}" type="image/x-icon">
+
+  <!--Google font-->
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&amp;display=swap" rel="stylesheet">
+
+  <!--icon css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/themify.css' %}">
+
+  <!--Slick slider css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/slick.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/slick-theme.css' %}">
+
+  <!--Animate css-->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css' %}">
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.css' %}">
+
+  <!-- Theme css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/color2.css' %}" media="screen" id="color">
+
+    <!-- button css -->
+    <link rel="stytlesheet" tpe="text/css" href="{% static 'assets/css/extras.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <script>
+    function fun1()
+    {
+      var s1=document.getElementById("f1");
+      var s2=document.getElementById("f2");
+      var s3=document.getElementById("f3");
+      s1.style.display="";
+    }
+    function fun2()
+    {
+      var s1=document.getElementById("f1");
+      var s2=document.getElementById("f2");
+      var s3=document.getElementById("f3");
+      s2.style.display="";
+    }
+    function fun3()
+    {
+      var s1=document.getElementById("f1");
+      var s2=document.getElementById("f2");
+      var s3=document.getElementById("f3");
+      s3.style.display="";
+    }
+    </script>
+</head>
+<body>
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>profile</h2>
+                        <ul>
+                            <li><a href="/">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+
+<!-- personal deatail section start -->
+<section class="contact-page register-page section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="mb-3">PERSONAL DETAIL</h3>
+                <form class="theme-form">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="name">First Name</label>
+                               <input type="text" class="form-control" id="name" value="{{user.first_name}}" readonly>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="email">Last Name</label>
+                               <input type="text" class="form-control" id="last-name" value="{{user.last_name}}" readonly>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="review">Phone number</label>
+                               <input type="text" class="form-control" id="review" value="{{user.username}}" readonly>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" value="{{user.email}}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="mb-3 spc-responsive">USER CONTRIBUTION</h3>
+                <form class="theme-form">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <!-- <div class="form-group"> -->
+                                <h4><a style="color:black" href="{% url 'user_book' user.id %}">BOOKS</a></h4>
+                                <div class="button">
+                                  <button type="button" id="fn1" class="btn"><img src="{% static 'assets/images/books.jpg' %}" width="100px" height="100px"></button>
+                                </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+								<h4><a style="color:black" href="{% url 'user_stationary' user.id %}">STATIONERY</a></h4>
+                                <div class="button">
+                                  <button type="button" id="fn2" class="btn"><img src="{% static 'assets/images/stationery.png' %}" width="100px" height="100px"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+								<h4><a style="color:black" href="{% url 'user_reward' user.id %}">REWARD</a></h4>
+                                <div class="button">
+                                  <button type="button" id="fn3" class="btn"><img src="{% static 'assets/images/reward.png' %}" width="100px" height="100px"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+			
+            <!-- <div class="col-lg-6">
+              <h3 class="mb-3 spc-responsive">CONTRIBUTION DETAILS</h3>
+              <form class="theme-form">
+                  <div class="form-row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <span style="display:none" id="f1">
+                                <font color="black">Your books are</font>
+                              </span>
+                              <span style="display:none" id="f2">
+                                <font color="black">Your stationery are</font>
+                              </span>
+                              <span style="display:none" id="f3">
+                                <font color="black">Your rewards are</font>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+            </div> -->
+
+      </div>
+    </div>
+</section>
+<!-- Section ends -->
+
+<!-- tap to top -->
+<div class="tap-top">
+    <div>
+        <i class="fa fa-angle-double-up"></i>
+    </div>
+</div>
+<!-- tap to top End -->
+
+<!-- latest jquery-->
+<script src="../assets/js/jquery-3.3.1.min.js" ></script>
+
+<!-- menu js-->
+<script src="../assets/js/menu.js"></script>
+
+<!-- popper js-->
+<script src="../assets/js/popper.min.js" ></script>
+
+<!-- slick js-->
+<script  src="../assets/js/slick.js"></script>
+
+<!-- Bootstrap js-->
+<script src="../assets/js/bootstrap.js" ></script>
+
+<!-- Theme js-->
+<script src="../assets/js/script.js" ></script>
+</body>
+{% endif %}
+</html>

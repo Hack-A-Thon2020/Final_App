@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Registration</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	</head>
+	<body background= "Photo.jpg">
+	<div class="row" type="button">
+
+
+		<ul class="main-nav">
+			<li class="active"> <a href="/">  HOME </a> </li>
+		</ul>
+		</div>
+		<font color="black" align="center">
+			<br><br><br><br><br><br><br><br>
+		<div class="box">
+		<h1> <font size=60 > Register </font></h1>
+			<form action="register" method="post">
+				{% csrf_token %}
+				<div class="InputBox">
+					<label><b> First Name : </b></label>
+					<input type="text" name="first_name" placeholder="Enter your Name" >
+					<label><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last Name : </b></label>
+					<input type="text" name="last_name" placeholder="Enter surname" >
+				</div>
+				<br>
+				<div class="InputBox" >
+					<label><b> Enrollment No.  :  </b></label>
+					<input type="number" name="username" placeholder="Eg:170120107001" >
+				</div>
+				<br>
+				<div class="InputBox" >
+					<label><b> Email ID  :  </b></label>
+					<input type="email" name="email" placeholder="Enter Your Email" >
+				</div>
+				<br>
+				<b>Enter Password:</b><input type="password" name="password1" placeholder="password">
+				<b>Re-Enter password</b><input type="password" name="password2" placeholder="confirm password">
+				<br>
+				<br>
+				<button><input type = "submit" value="Submit"></button>
+			</form>
+		</font>
+		</div>
+		<div>
+			{% for message in messages %}
+			<h3>{{message}}</h3>
+			{% endfor %}
+		</div>
+	</body>
+</html>
